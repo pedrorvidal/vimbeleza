@@ -1,0 +1,345 @@
+extends html
+#----------------------------------------------------------------------------------------------------------------Q
+#------------------------------------------------- MEUS SNIPPETS ------------------------------------------------Q
+#----------------------------------------------------------------------------------------------------------------Q
+snippet tag "div creation" i
+<${1:div}>
+	${2}
+</${1/(\w+).*/$1/}> <!-- ${3:id or class} -->
+endsnippet
+
+snippet taga "div creation witch attributes" i
+<${1:div} ${2:id|class}="${3:id_or_class_name}">
+	${4}
+</${1/(\w+).*/$1/}> <!-- $3 -->
+endsnippet
+
+snippet tagc "div creation with CLASS"
+<${1:div} class="${2:class_name}">
+	${3:}
+</${1/(\w+).*/$1/}> <!-- .$2 -->
+endsnippet
+
+snippet tagi "div creation with ID"
+<${1:div} id="${2:class_name}">
+	${3:}
+</${1/(\w+).*/$1/}> <!-- #$2 -->
+endsnippet
+
+snippet php "php" i
+<?php
+	${1:}
+?>
+endsnippet
+
+snippet phpi "php inline" i 
+<?php ${1:} ?>
+endsnippet
+
+snippet rphp "reverse php" i
+?>
+	${1} 
+<?php
+endsnippet
+
+snippet pecho "php echo inline" i
+<?php echo "${1:}"; ?>
+endsnippet
+
+snippet getextension "get file extension from a string" i
+$extension = substr(strrchr(${1:file_name},'.'),1);
+endsnippet
+
+snippet pinclude "php include" i
+<?php include(${1:file}); ?>
+endsnippet
+
+snippet ccm "close comment" i
+<!-- ${1:class or id} -->
+endsnippet
+
+snippet cmc "close comment with class" i
+<!-- .${1:class or id} -->
+endsnippet
+
+snippet cmi "close comment with id" i
+<!-- #${1:class or id} -->
+endsnippet
+
+snippet bullet "Bullet for lists" i
+&bull;
+endsnippet
+
+# ------------------------------------------------ PHP Utils ------------------------------------------------
+snippet str_replace "str_replace($search, $replace, $subject)" i
+str_replace(${1:$searched_string}, ${2:replace}, ${3:subject});
+endsnippet
+
+snippet eprevard "var_dump com echo nas tags pre" i
+echo "<pre>";
+	var_dump($${1:var});
+echo "</pre>";
+endsnippet
+
+snippet ieprevard "INLINE var_dump com echo nas tags pre" i
+echo "<pre>"; var_dump($${1:var}); echo "</pre>";
+endsnippet
+
+snippet prevard "Var dump sem echo" i
+<pre>
+	<?php var_dump($${1:var}); ?>
+</pre>
+endsnippet
+
+snippet iprevard "Var dump sem echo" i
+<pre>
+	<?php var_dump($${1:var}); ?>
+</pre>
+endsnippet
+
+snippet edebugvar "echo div debug var"
+echo "<div class='debug' style='display:none'> \n";
+	echo "<pre> \n";
+		var_dump($${1:var});
+	echo "</pre> \n";
+echo "</div> \n";
+endsnippet
+
+snippet debugvar "Debugar var em div hidden"
+<div class="debug" style="display:none">
+	<pre> <?php var_dump($${1:var}); ?> </pre>
+</div> <!-- .debug -->
+endsnippet
+
+snippet divhidden "Hidden div"
+<div style="display:none">${1}</div>
+endsnippet
+
+snippet edivhidden "echo hidden div"
+echo "<div style='display:none'>${1}</div>";
+endsnippet
+
+snippet phpvard "php var_dump" i
+<?php var_dump(${1}); ?>
+endsnippet
+
+snippet vard "var_dump" i
+var_dump($${1:var});
+endsnippet
+
+snippet brl "<br />" i
+<br />${1}
+endsnippet
+
+snippet pif "php if" i
+<?php if (${1:/* condition */}) : ?>
+	${2:}
+endsnippet
+
+snippet pendif "php endif" i
+<?php endif; ?>${1}
+endsnippet
+
+snippet pelse "php else" i
+<?php else : ?>${1}
+endsnippet
+
+snippet if "php simple if" 
+if(${1:condition}) :
+endsnippet 
+
+snippet if "php ifc" 
+if ($${1:var} ${2:==|!=} ${3:condition}) :
+endsnippet
+
+snippet ifelse "php if...else"
+if ($${1:var} ${2:==|!=} ${3:condition}) :
+	${4}
+else: 
+	${5}
+endif;
+endsnippet
+
+snippet shortif "php short if" i
+$${1:var} = ($${2:var2} == ${3:condition} ? ${4:if_true} : ${5:if_false});
+endsnippet
+
+snippet youtubeid "get youtube video id" i
+preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $${1:url_video}, $${2:matches});${3}
+endsnippet
+
+snippet jquery191 "embed jquery 1.9.1" i
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+endsnippet
+
+snippet jquery202 "embed jquery 2.0.2" i
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+endsnippet
+
+snippet pinc "php include" i
+<?php include '${1:file}'; ?>
+endsnippet
+
+snippet pifisset "php if isset" i
+<?php if (isset($${1:var})) : ?>
+	${2}
+endsnippet
+
+snippet ifisset "php if isset" i
+if (isset($${1:var})) :
+endsnippet
+
+# ------------------------------------------------ Codeigniter utils ------------------------------------------------
+snippet df "document function" i
+/*
+* Função	${1:Descrição da função}
+* @author	Pedro Vidal <pedro@rage.com.br>
+* @name		${2:nome}
+* @params	${3:parâmetros}
+* @return	${4:return}
+*/
+endsnippet
+
+snippet cisetvalue "ci set value" i
+<?php echo set_value('${1}'); ?>
+endsnippet
+
+snippet cisetselect "cisetselect" i
+<?php echo set_select('${1:name}', '${2:value}'); ?>
+endsnippet
+
+snippet cisetcheckbox "cisetcheckbox" i
+<?php echo set_checkbox('${1:name}', '${2:value}'); ?>
+endsnippet
+
+snippet cisetradio "cisetradio" i
+<?php echo set_radio('${1:name}', '${2:value}'); ?>
+endsnippet
+
+snippet cidbquery "ci dbquery" i
+$this->db->query('${1}');	
+endsnippet
+
+snippet cipost "ci post" i
+$this->input->post('${1}');
+endsnippet
+
+snippet cimodel "cimodel" i
+$this->${1:model_name}->${2:function_name}(${3:params});
+endsnippet
+
+snippet cipechobase "<?php echo base_url(); ?>" i
+<?php echo base_url(); ?>
+endsnippet
+
+snippet ciseg "get uri segment"
+$this->uri->segment(${1:segment});
+endsnippet
+
+snippet ciview "load default view with data parameter"
+$this->load->view('template/template', $data);
+endsnippet
+
+snippet cidview "Load view"
+$this->load->view('${1:template}', $${2:var});
+endsnippet
+
+# ------------------------------------------------ WordPress utils ------------------------------------------------
+
+snippet bloginfo "wp echo bloginfo" i
+<?php bloginfo('${1}'); ?>
+endsnippet
+
+snippet blogurl "wp echo bloginfo('url')" i
+<?php bloginfo('url'); ?>
+endsnippet
+
+snippet pthetitle "wp echo the_title" i
+<?php the_title(); ?>${1}
+endsnippet
+
+snippet pthecontent "wp echo the_content" i
+<?php the_content(); ?>${1}
+endsnippet
+
+snippet pthepermalink "wp echo the_permalink" i
+<?php the_permalink(); ?>${1}
+endsnippet
+
+snippet wpquery "wp wp_query" i
+<?php
+$args = array(
+	'${1:index}' => '${2:value}'
+);
+$q = new WP_Query($args);
+global $post;
+while ($q->have_posts()) : $q->the_post(); ?>
+	${3}
+<?php endwhile; wp_reset_query(); ?>
+endsnippet
+
+snippet wptemplate "get template directory uri" i
+<?php echo get_template_directory_uri(); ?>
+endsnippet
+
+snippet form "html form" i
+<form action="${1}" method="${2:POST}">
+	${3}
+</form>
+endsnippet
+
+snippet htablec "html table"
+<table class="${1:class}">
+	<thead>
+		<tr>
+			<th>${2}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th></th>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+endsnippet
+
+snippet formup "html form para upload" i
+<form action="${1}" method="${2:POST}" enctype="${3:multipart/form-data}">
+	${4}
+</form>
+endsnippet
+
+snippet foreach "php loop foreach" i
+foreach ($${1:var} as $${2:value}) :
+	${3}
+endforeach;
+endsnippet
+
+snippet dataar "php data array for CI"
+$data['${1:index}']="${2:value}";
+endsnippet
+
+snippet datafm "php array for CI getting data from model"
+$data['${1:index}']=$this->${2:model}->${3:function}($${4:param});
+endsnippet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
