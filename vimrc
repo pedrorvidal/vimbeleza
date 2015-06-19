@@ -59,12 +59,12 @@ Plugin 'majutsushi/tagbar'
 Plugin 'godlygeek/tabular'
 
 " Vim color highlight
-" Plugin 'skammer/vim-css-color'
 Plugin 'gorodinskiy/vim-coloresque'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+au BufNewFile,BufRead *.vimrc set ft=vim
 
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
@@ -106,7 +106,7 @@ autocmd GUIEnter * set visualbell t_vb=
      "             ||+-- A backslash has no special meaning in mappings
      "             |+-- :write updates alternative file name
      "             +-- :read updates alternative file name
-     syntax on " syntax highlighting on
+     syntax on      " syntax highlighting on
  " }
 
  " General {

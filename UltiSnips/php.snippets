@@ -326,8 +326,27 @@ snippet datafm "php array for CI getting data from model"
 $data['${1:index}']=$this->${2:model}->${3:function}($${4:param});
 endsnippet
 
-
-
+snippet swit "php switch"
+switch (${1:var1}){
+	case ${2:value1}:
+		${3}
+		break;
+	case ${4:value}:
+		${5}
+		break;
+	case ${6:value}:
+		${7}
+		break
+	default:
+		${8}
+		break;
+}
+endsnippet
+snippet case "add case to switch"
+case ${1:value}:
+	${2://code}
+	break;
+endsnippet
 
 
 
